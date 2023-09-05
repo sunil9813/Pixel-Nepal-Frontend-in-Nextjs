@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .containers {
+    @apply w-[80%] m-auto;
+  }
+  .primary-btn {
+    @apply px-5 py-3 bg-primary rounded-sm text-white text-sm border-2 border-primary transition ease-in-out delay-150  duration-300 capitalize hover:text-primary hover:bg-transparent dark:hover:text-white hover:border-2 hover:border-primary;
+  }
+  .primary-outline-btn {
+    @apply px-5 py-3 text-primary dark:text-white text-sm border-2 border-primary rounded-full capitalize transition ease-in-out delay-150  duration-300 hover:bg-primary hover:text-white;
+  }
+  .primary-outline-btn-sq {
+    @apply px-5 py-3 text-white text-sm border-2 border-primary rounded-sm capitalize transition ease-in-out delay-150  duration-300 hover:bg-primary;
+  }
+  .card_1 {
+    @apply bg-white rounded-lg dark:bg-card_bg border border-[rgba(0,0,0,0.08)] dark:border-[#222f43];
+  }
+}
