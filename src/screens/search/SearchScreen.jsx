@@ -11,6 +11,7 @@ import { MdOutlineSmartScreen } from "react-icons/md";
 import { SlScreenSmartphone } from "react-icons/sl";
 import { CgScreenWide, CgStyle } from "react-icons/cg";
 import { Box, ImageList, ImageListItem } from "@mui/material";
+import Masonry from "react-masonry-css";
 
 export const SearchScreen = () => {
   return (
@@ -25,7 +26,7 @@ export const SearchScreen = () => {
   );
 };
 
-function Icon({ id, open }) {
+export const Icon = ({ id, open }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +39,7 @@ function Icon({ id, open }) {
       <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
     </svg>
   );
-}
+};
 export const SearchSidebar = () => {
   const [open, setOpen] = useState(1);
 
@@ -464,9 +465,62 @@ export const SidebarMainContent = () => {
         "https://img.freepik.com/free-vector/realistic-ui-ux-background_52683-69487.jpg?size=626&ext=jpg&ga=GA1.2.702630499.1686130614&semt=ais",
     },
   ];
+
+  const dummyData = [];
+
+  for (let id = 1; id <= 50; id++) {
+    const name = `Name ${id}`;
+    const position = `Web Designer ${id}`;
+    const description = "Lorem ipsum dolor sit amet.";
+
+    // Generate random width and height values between 300 and 800
+    const width = Math.floor(Math.random() * 500) + 300;
+    const height = Math.floor(Math.random() * 500) + 300;
+
+    const cover = `https://source.unsplash.com/${width}x${height}/?nature`;
+    const avatar = `https://source.unsplash.com/${width}x${height}/?portrait,people&${id}`;
+
+    dummyData.push({
+      id,
+      name,
+      position,
+      description,
+      cover,
+      avatar,
+    });
+  }
+  const breakpointColumnsObj = {
+    default: 4,
+    1100: 3,
+    700: 2,
+    500: 1,
+  };
+
   return (
-    <div className="sidebar w-4/5 p-5">
-      <Box>
+    <div className="sidebar w-4/5 px-5">
+      <div className="max-w-[1440px] mx-auto">
+        <Masonry
+          breakpointCols={breakpointColumnsObj}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column my-9"
+        >
+          {dummyData.map((item, index) => (
+            <div
+              key={index}
+              className="masonry-item hover:scale-[1.02] transition-all duration-200 relative group after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-black/40 after:opacity-0 after:transition-all after:ease-in-out after:duration-300 hover:after:opacity-100"
+            >
+              <img src={item.cover} alt={item.title} />
+              <div className="item-info opacity-0 group-hover:opacity-100 absolute bottom-[12px] left-[12px] transition-all duration-300 ease-in-out flex items-center justify-start z-10">
+                <div className="item-info-user w-[36px] h-[36px] rounded-full overflow-hidden me-3">
+                  <img src={item.avatar} className="w-full h-full object-fit-cover" alt="avatar" />
+                </div>
+                <p className="font-medium text-white bg-black/20 px-3 py-1 rounded-full">Marcus Lucas Arthur</p>
+              </div>
+            </div>
+          ))}
+        </Masonry>
+      </div>
+      {/*  <Box>
         <ImageList variant="masonry" cols={4} gap={8}>
           {imageList.map((item, i) => (
             <ImageListItem key={i}>
@@ -474,7 +528,7 @@ export const SidebarMainContent = () => {
             </ImageListItem>
           ))}
         </ImageList>
-      </Box>
+      </Box> */}
     </div>
   );
 };

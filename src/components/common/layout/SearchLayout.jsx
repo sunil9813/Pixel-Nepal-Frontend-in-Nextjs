@@ -1,6 +1,6 @@
-import { Footer } from "@/components/footer/Footer"
-import { SearchHeader } from "@/components/header/SearchHeader"
-import React from "react"
+import { Footer } from "@/components/footer/Footer";
+import { SearchHeader } from "@/components/header/SearchHeader";
+import React from "react";
 
 export const SearchLayout = ({ children }) => {
   return (
@@ -9,5 +9,5 @@ export const SearchLayout = ({ children }) => {
       <main>{children}</main>
       <Footer />
     </>
-  )
-}
+  );
+};

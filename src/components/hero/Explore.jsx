@@ -4,6 +4,10 @@ import { AiOutlineLike, AiOutlineSearch, AiOutlineStar } from "react-icons/ai";
 import { BsArrowRepeat } from "react-icons/bs";
 import { SellContentHeroCards } from "./SellContentHero";
 import { TitleHeading } from "../common/design/Title";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 export const Explore = () => {
   return (
@@ -11,9 +15,11 @@ export const Explore = () => {
       <section className="py-12">
         <div className="containers">
           <h2 className="text-2xl text-center font-semibold">
-            <span className="text-primary leading-loose	">Explore</span> trending categories on SnapHub
+            <span className="text-primary leading-loose	">Explore</span> trending categories
           </h2>
-          <p className="text-center text-sm">Check what’s popular on SnapHub and make your project look trendy and professional.</p>
+          <p className="text-center text-sm">
+            The collection of your stock photos, images and also the one generously shared by talented creators.
+          </p>
           <div>
             <div className="grid grid-cols-2 gap-5 mt-12">
               <div>
@@ -51,8 +57,10 @@ export const Explore1 = () => {
   return (
     <section className="pb-12">
       <div className="containers">
-        <h2 className="text-2xl font-semibold leading-loose">Unlock your inner creator</h2>
-        <p className="text-sm">Get the inspiration you need with these collections carefully selected to boost your project’s engagement.</p>
+        <h2 className="text-2xl font-semibold leading-loose">Explore trending categories</h2>
+        <p className="text-sm">
+          Get the inspiration you need with these collections carefully selected to boost your project’s engagement.
+        </p>
 
         <div className="grid grid-cols-4 gap-16 mt-12">
           <Card title="Title One" image="images/e1.avif" styles="h-96 rounded-xl" show={true} />
@@ -69,15 +77,33 @@ export const Explore2 = () => {
     <section className="pb-12">
       <div className="containers">
         <h2 className="text-2xl text-center font-semibold leading-loose">
-          The smartest choice for <span className="text-primary">creatives like you</span>
+          Explore trending <span className="text-primary">categories</span>
         </h2>
-        <p className="text-sm text-center">Whether you’re looking for designs or photographs, you’ll find the perfect asset on Freepik.</p>
+        <p className="text-sm text-center">
+          Whether you’re looking for designs or photographs, you’ll find the perfect asset on Freepik.
+        </p>
         <div className="grid grid-cols-2 gap-5">
           <div className="left mt-24 flex flex-col gap-8">
-            <Card1 icon={<AiOutlineStar size={30} />} title="High-quality stock content" desc="Download scroll-stopping images of the best quality to make your projects look professional." />
-            <Card1 icon={<AiOutlineLike size={30} />} title="Ready-to-use assets" desc="Access thousands of images and designs ready-to-publish and get your project ready double quick." />
-            <Card1 icon={<AiOutlineSearch size={30} />} title="Guaranteed search results" desc="There’s an image and style for every project, whatever your needs are." />
-            <Card1 icon={<BsArrowRepeat size={30} />} title="Fresh content everyday" desc="Our library is updated on a daily basis so you can find the newest and trendiest photos and designs." />
+            <Card1
+              icon={<AiOutlineStar size={30} />}
+              title="High-quality stock content"
+              desc="Download scroll-stopping images of the best quality to make your projects look professional."
+            />
+            <Card1
+              icon={<AiOutlineLike size={30} />}
+              title="Ready-to-use assets"
+              desc="Access thousands of images and designs ready-to-publish and get your project ready double quick."
+            />
+            <Card1
+              icon={<AiOutlineSearch size={30} />}
+              title="Guaranteed search results"
+              desc="There’s an image and style for every project, whatever your needs are."
+            />
+            <Card1
+              icon={<BsArrowRepeat size={30} />}
+              title="Fresh content everyday"
+              desc="Our library is updated on a daily basis so you can find the newest and trendiest photos and designs."
+            />
           </div>
           <div className="right">
             <img src="images/banner1.webp" alt="banner1" className="w-full h-full object-contain" />
@@ -94,14 +120,14 @@ export const Explore3 = () => {
         <div className="containers text-white flex items-center justify-between">
           <div className="left">
             <h3 className="text-lg font-medium">
-              Welcome to the new <span className="text-orange-500">SnapHub calendar</span>
+              Welcome to the new <span className="text-orange-500">categories</span>
             </h3>
             <h2 className="text-2xl font-medium mt-5 mb-8">
               <span className="text-orange-500">All celebrations and events </span> <br />
               are at your fingertips
             </h2>
             <Button size="lg" variant="text" color="white" className="bg-[rgba(255,255,255,0.1)]">
-              Browse calendar
+              Browse categories
             </Button>
           </div>
           <div className="right">
@@ -121,12 +147,14 @@ export const Explore4 = () => {
         <div className="containers px-32 bg-indigo-50 rounded-xl flex items-center justify-between">
           <div className="left">
             <h2 className="text-3xl font-semibold">
-              Join SnapHub
-              <span className="text-indigo-500"> creator community </span>
+              Join
+              <span className="text-indigo-500"> categories </span>
             </h2>
-            <p className="my-5">Behind every stock image, there’s a creative mind. You can also create content and sell it on Freepik</p>
+            <p className="my-5">
+              Behind every stock image, there’s a creative mind. You can also create content and sell it on Freepik
+            </p>
             <Button size="lg" color="indigo">
-              Sell content
+              View content
             </Button>
           </div>
           <div className="right h-[40vh]">
@@ -161,36 +189,94 @@ export const Card1 = ({ title, icon, desc }) => {
     </div>
   );
 };
+
+function SampleNextArrow(props) {
+  const { onClick } = props;
+  return (
+    <div onClick={onClick} className=" absolute top-[20%] -right-5 z-10">
+      <button className="w-12 h-12 rounded-full bg-cyan-700 flex justify-center items-center text-white shadow-lg">
+        <MdOutlineKeyboardArrowRight size={30} />
+      </button>
+    </div>
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { onClick } = props;
+  return (
+    <div onClick={onClick} className=" absolute top-[20%] -left-5 z-10">
+      <button className="w-12 h-12 rounded-full bg-cyan-700 flex justify-center items-center text-white shadow-lg">
+        <MdOutlineKeyboardArrowLeft size={30} />
+      </button>
+    </div>
+  );
+}
 export const Explore5 = () => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    centerMode: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+  };
   return (
     <>
       <section className="bg-gray-50 py-12">
         <section className="containers">
           <div className="text-center">
-            <TitleHeading title1="Stories from our contributors" />
+            <TitleHeading title1="Stories from our categories" />
             <p>Surf categories of professional photos to express your ideas and connect with your audience</p>
           </div>
-          <div className="grid grid-cols-4 gap-5 mt-12">
-            <SellContentHeroCards cover="https://img.freepik.com/free-photo/front-view-smiley-women-taking-selfie_23-2149734544.jpg?size=338&ext=jpg" category="People and emotions" />
-            <SellContentHeroCards cover="https://img.freepik.com/free-photo/woman-wearing-sundress_23-2150388737.jpg?size=338&ext=jpg" category="Lifestyle, health and wellness" />
-            <SellContentHeroCards
-              cover="https://img.freepik.com/premium-photo/multiethnic-school-kids-teacher-using-smartphone-modern-classroom_116547-33703.jpg?size=338&ext=jpg"
-              category="Education and learning"
-            />
-            <SellContentHeroCards
-              cover="https://img.freepik.com/free-photo/happy-woman-using-lap-top-while-sitting-airport-lounge_273443-4233.jpg?size=338&ext=jpg"
-              category="Business and marketing"
-            />
-            <SellContentHeroCards
-              cover="https://img.freepik.com/premium-photo/aerial-top-view-forest-tree-rainforest-ecosystem-drone-photography-lake-middle-forest-slovakia_527096-4745.jpg?size=338&ext=jpg"
-              category="Nature"
-            />
-            <SellContentHeroCards cover="https://img.freepik.com/free-photo/top-view-appetizing-pozole-bowl_23-2149248515.jpg?size=338&ext=jpg" category="Food and drink" />
-            <SellContentHeroCards cover="https://img.freepik.com/free-photo/men-training-capoeira-beach_52683-101105.jpg?size=338&ext=jpg" category="Sport" />
-            <SellContentHeroCards
-              cover="https://img.freepik.com/free-photo/man-wearing-smart-glasses-touching-virtual-screen-futuristic-technology-digital-remix_53876-124731.jpg?size=338&ext=jpg"
-              category="Industry and technology"
-            />
+          <div className="h-[50vh] mt-5 py-5">
+            <Slider {...settings}>
+              <div className="m-2">
+                <SellContentHeroCards
+                  cover="https://img.freepik.com/free-photo/front-view-smiley-women-taking-selfie_23-2149734544.jpg?size=338&ext=jpg"
+                  category="People and emotions"
+                />
+              </div>
+              <div className="m-2">
+                <SellContentHeroCards
+                  cover="https://img.freepik.com/free-photo/woman-wearing-sundress_23-2150388737.jpg?size=338&ext=jpg"
+                  category="Lifestyle, health and wellness"
+                />
+              </div>
+              <div className="m-2">
+                <SellContentHeroCards
+                  cover="https://img.freepik.com/premium-photo/multiethnic-school-kids-teacher-using-smartphone-modern-classroom_116547-33703.jpg?size=338&ext=jpg"
+                  category="Education and learning"
+                />
+              </div>
+              <div className="m-2">
+                <SellContentHeroCards
+                  cover="https://img.freepik.com/free-photo/happy-woman-using-lap-top-while-sitting-airport-lounge_273443-4233.jpg?size=338&ext=jpg"
+                  category="Business and marketing"
+                />
+              </div>
+              <div className="m-2">
+                <SellContentHeroCards
+                  cover="https://img.freepik.com/premium-photo/aerial-top-view-forest-tree-rainforest-ecosystem-drone-photography-lake-middle-forest-slovakia_527096-4745.jpg?size=338&ext=jpg"
+                  category="Nature"
+                />
+              </div>
+              <div className="m-2">
+                <SellContentHeroCards
+                  cover="https://img.freepik.com/free-photo/top-view-appetizing-pozole-bowl_23-2149248515.jpg?size=338&ext=jpg"
+                  category="Food and drink"
+                />
+              </div>
+              {/* <SellContentHeroCards
+                cover="https://img.freepik.com/free-photo/men-training-capoeira-beach_52683-101105.jpg?size=338&ext=jpg"
+                category="Sport"
+              />
+              <SellContentHeroCards
+                cover="https://img.freepik.com/free-photo/man-wearing-smart-glasses-touching-virtual-screen-futuristic-technology-digital-remix_53876-124731.jpg?size=338&ext=jpg"
+                category="Industry and technology"
+              /> */}
+            </Slider>
           </div>
         </section>
       </section>
@@ -209,10 +295,18 @@ export const Explore6 = () => {
           <div className="grid grid-cols-3 gap-5 mt-10">
             <div className="box">
               <div className="h-56">
-                <img className=" rounded-t-lg w-full h-full object-cover" src="https://img.freepik.com/free-photo/full-shot-women-sitting-stairs-with-cat_23-2149522123.jpg?size=626&ext=jpg" alt="" />
+                <img
+                  className=" rounded-t-lg w-full h-full object-cover"
+                  src="https://img.freepik.com/free-photo/full-shot-women-sitting-stairs-with-cat_23-2149522123.jpg?size=626&ext=jpg"
+                  alt=""
+                />
               </div>
               <div className="h-32 flex justify-between items-center gap-2 mt-2">
-                <img className=" rounded-bl-lg w-full h-full object-cover" src="https://img.freepik.com/free-photo/full-shot-woman-wearing-hijab_23-2149522155.jpg?size=626&ext=jpg" alt="" />
+                <img
+                  className=" rounded-bl-lg w-full h-full object-cover"
+                  src="https://img.freepik.com/free-photo/full-shot-woman-wearing-hijab_23-2149522155.jpg?size=626&ext=jpg"
+                  alt=""
+                />
                 <img
                   className="w-full h-full object-cover"
                   src="https://img.freepik.com/free-photo/young-woman-wearing-hijab-medium-shot_23-2149522105.jpg?size=626&ext=jpg&ga=GA1.1.1279315338.1690169622"
